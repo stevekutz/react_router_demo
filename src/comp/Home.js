@@ -6,8 +6,8 @@ const Home = () => {
         <div>
             <p> HOME </p>
         
-        </diHOME
-
+        </div>
+    )
 
 }
 
