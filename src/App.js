@@ -28,3 +28,4 @@ function App() {
 
 export default App;
 
+// <Route exact path = '/'> <Nav /> <Home /> <Contact /></Route>
