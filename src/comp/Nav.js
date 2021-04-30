@@ -1,16 +1,18 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 const Nav = () => {
 
+    const locationHook = useLocation();
+
     return (
         <div>
-            <p> NAV </p>
-        
+            <Link to = '/' > Home </Link>
+            <Link to = '/about'> About </Link>
+            <Link to = '/contact'> Contact </Link>        
+            <div> current path: {locationHook.pathname} </div>
         </div>
     )
-
-
 }
 
 export default Nav;

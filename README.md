@@ -116,7 +116,7 @@ A React application is typically composed of multiple React components with each
     <img src = 'src/readme_img/1_about_path.jpg' width = '50%' />
 
     What is happening ?
-    Internally, React Router converts the path string into a regular expression. The `Router` component used in `index.js` to wrap the `App` component creates a `history` obj. Within is a location object that describes the pathname. It is this pathname that is matched within the regular expression. The paths for `/` and `/about` both match the converted regular expression. 
+    Internally, React Router converts the path string into a regular expression. The `Router` component used in `index.js` to wrap the `App` component creates a `history` obj. Within is a `location object` that describes the pathname. It is this pathname that is matched within the regular expression. The paths for `/` and `/about` both match the converted regular expression. 
 
     <img src = 'src/readme_img/1_ReactDevTools_Router.jpg'  width = '70%'/>
     
@@ -153,3 +153,51 @@ A React application is typically composed of multiple React components with each
 
 
     If only one component should be rendered, `React Router` has a solution. Wrapping all of the Route components in a `Switch` component will return the first matching component. It is sill necessary to include the exact prop since only one route will be returned and first matched path will be '/'. Using the `Switch` component is an easy way to make sure each route associated with a unique view. 
+
+##### Navigating between routes
+
+Using the  `anchor` tag  to navigate between routes forces the browser to reload the entire page. Since React Router only renders views that match the current path, a page refresh is unecessary. Instead, `React Router` uses the `Link` component to refresh views. Each `Link` component uses a `to` prop to match the view to the `path` defined in each `Route` component. Since the `Route` component was defined inside of `App`, any child of `App` can also recognize a valid route path. The `to` prop works like the anchor tag `href` attribute. However, the `to` prop convert the `to` string into a location object. React Router ver 5 includes a useLocation hook that returns the `location object`. The pathname of the `location object` changes for any valid URL route.
+
+1) A simple navigation component can be built from several `Link` components and the useLocation hook to see how React Router tracks the current pathname.
+
+    ~~~ js
+    import React from 'react';
+    import {Link, useLocation} from 'react-router-dom';
+
+    const Nav = () => {
+
+        const locationHook = useLocation();
+
+        return (
+            <div>
+                <Link to = '/' > Home </Link>
+                <Link to = '/about'> About </Link>
+                <Link to = '/contact'> Contact </Link>        
+                <div> current path: {locationHook.pathname} </div>
+            </div>
+        )
+    }
+
+    export default Nav;
+    ~~~
+
+2) Including a navigation component inside of `App` will render the navigation component on every valid route.
+
+    ~~~ js
+        <div className = 'App'>
+            <Nav />
+
+            <Switch>
+                <Route exact path = '/'> <Home /> </Route>
+                <Route path = '/about'> <About /> </Route>   
+                <Route path = '/contact'> <Contact /> </Route>  
+            </Switch>
+            
+        </div>
+    ~~~
+
+    <img src = 'src/readme_img/2_Link_home.jpg' width = '50%'/>
+    <img src = 'src/readme_img/2_Link_about.jpg' width = '50%'/>
+    <img src = 'src/readme_img/2_Link_contact.jpg' width = '50%'/>
+
+##### Dynamic Routes
