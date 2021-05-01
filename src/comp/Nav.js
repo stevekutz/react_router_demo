@@ -1,11 +1,16 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useParams, useHistory} from 'react-router-dom';
 
 import './nav.css';
 
 const Nav = () => {
-
+    const historyHook = useHistory()
     const locationHook = useLocation();
+    const {paramHook} = useParams();
+
+    console.log(historyHook)
+    console.log(locationHook);
+    console.log(paramHook);
 
     return (
         <div className = 'nav-container'>
@@ -19,7 +24,13 @@ const Nav = () => {
                 
                 </div>
             </div>
-            <div className = 'route-container'> current path: {locationHook.pathname} </div>
+            <div className = 'route-container'>
+                <p> <span className = 'highlight'> current path: </span> 
+                    <span className = 'pathname'> {locationHook.pathname} </span>
+                    
+                
+                </p>
+            </div>
         </div>
     )
 }

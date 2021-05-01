@@ -67,3 +67,11 @@
     color: seagreen;
 
 }
+
+.highlight {
+    font-weight: bold;
+}
+
+.pathname {
+    color: red;
+}

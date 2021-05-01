@@ -6,7 +6,7 @@ const Product = () => {
     const {idVal} = useParams();
 
     return (
-        <div style = {{color: 'blue'}}> Product: {idVal}</div>
+        <div className = 'product-info' > Product: {idVal} view</div>
     
     )
 
