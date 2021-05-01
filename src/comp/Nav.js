@@ -9,7 +9,8 @@ const Nav = () => {
         <div>
             <Link to = '/' > Home </Link>
             <Link to = '/about'> About </Link>
-            <Link to = '/contact'> Contact </Link>        
+            <Link to = '/contact'> Contact </Link>    
+            <Link to = '/products'> Products </Link>    
             <div> current path: {locationHook.pathname} </div>
         </div>
     )

@@ -7,6 +7,8 @@ import Home from './comp/Home';
 import About from './comp/About';
 import Contact from './comp/Contact';
 import Nav from './comp/Nav';
+import Products from './comp/Products';
+
 
 
 
@@ -18,8 +20,9 @@ function App() {
 
             <Switch>
                 <Route exact path = '/'> <Home /> </Route>
-                <Route path = '/about'> <About /> </Route>   
-                <Route path = '/contact'> <Contact /> </Route>  
+                <Route path = '/about'> <About /> </Route> 
+                <Route path = '/contact'> <Contact /> <Products/> </Route>
+                <Route path = '/products'> <Products /> </Route>  
             </Switch>
             
         </div>
