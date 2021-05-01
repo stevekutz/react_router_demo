@@ -200,4 +200,79 @@ Using the  `anchor` tag  to navigate between routes forces the browser to reload
     <img src = 'src/readme_img/2_Link_about.jpg' width = '50%'/>
     <img src = 'src/readme_img/2_Link_contact.jpg' width = '50%'/>
 
-##### Dynamic Routes
+##### Nested Routes Basics
+
+React Router can also render routes within another route path. For example, the`/products` route view might show a list of products while the route `/products/1` renders a view for the first product. This powerful feature of React Router is often implemented by mapping through data received from an API call. Each element receives its own `<Link` element. Each `Link` component receives a `template literal` within its `to` prop to handle to dynamic portion of the route assigned while mapping through the API data. However, each `Link` must match the path defined in a `Route` in order to render something. This is accomplished again using template literals. A single `Route` component can use a template literal within its `path` prop. The template literal defines the dynamic portion of the path.
+
+1) Create a `Product` component to handle sample API data.
+    - the key for each mapped element(product.id) is used in a placeholder within the template literal.
+    - the `Route` component uses the variable `idVal` within its `path` prop.
+   - the preceding colon tells React Router that a variable comes next. This variable MUSt be the same one used in the rendered child component of `Route`
+   - every nested route will also contain the mapped <Link>. This is similar to how the <Nav> component defined within `App` is rendered in every component. There is a way to modify this behavior but for now we ill focus on the basics of nested routing.  
+
+        ~~~ js
+        import {infoData} from '../data/infodata';
+
+        const Products = () => {
+            
+            console.log(infoData);     
+
+
+            return (
+                <div>
+                    <p>  PRODUCTS </p>
+
+                    {infoData.map( (product) => {
+                        return (
+                            <div key = {product.id}> 
+                                <Link to = {`/products/${product.id}`}>  {product.name} </Link>
+                            
+                            </div>
+                        )
+                    
+                    }) }
+
+                    <Route exact path = {`/products/:idVal`} >
+                        <Product/>
+                    
+                    </Route>
+
+
+                    
+
+                </div>
+            )
+        }
+
+        export default Products;
+        ~~~
+
+2) Create a `Product` component
+
+   - the useParams() hook can identify the dynamic portion of the path
+   - the destructured variable MUST match the variable used in the `Products` `Route` path
+
+        ~~~ js
+        import React from 'react';
+        import {useParams} from 'react-router-dom';
+
+        const Product = () => {
+
+            const {idVal} = useParams();
+
+            return (
+                <div style = {{color: 'blue'}}> Product: {idVal}</div>
+            
+            )
+
+        }
+
+        export default Product;
+        ~~~
+
+    Each nested route will now show a unique current path and view
+
+    <img src = 'src/readme_img/3_product_1.jpg' width = '50%'/>
+    <img src = 'src/readme_img/3_product_2.jpg' width = '50%'/>
+    <img src = 'src/readme_img/3_product_3.jpg' width = '50%'/>
+

@@ -1,4 +1,4 @@
-const infoData = [
+export const infoData = [
     {
         id: 1,
         name: 'Product 1',
