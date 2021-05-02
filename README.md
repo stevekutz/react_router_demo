@@ -110,10 +110,10 @@ A React application is typically composed of multiple React components with each
     However, manually typing in the path for each route directly in the browser will result in some unexpected behavior.
 
     - The root path, '/'  works as expected.
-            <img src = 'src/readme_img/1_root_path.jpg' width = '50%'/> 
+        <img src = 'src/readme_img/1_root_path.jpg' width = '50%'/> 
 
     - However, the '/about' path renders both the `root` route and the `about` route.
-    <img src = 'src/readme_img/1_about_path.jpg' width = '50%' />
+        <img src = 'src/readme_img/1_about_path.jpg' width = '50%' />
 
     What is happening ?
     Under the hood, the `Router` component used in `index.js` to wrap the `App` component creates a `history` obj using the `HTML5 history API`. Within the history object is a `location object` that includes a pathname property. When the pathname is a string, React Router converts the path string into a regular expression. The paths for `/` and `/about` both match the converted regular expression. 
@@ -135,8 +135,9 @@ A React application is typically composed of multiple React components with each
     ~~~ js
         <Route path = '/'> <Home /> </Route>
         <Route path = '/about'> <About /> </Route> 
-        <Route path = '/about/about'> <Contact /> </Route>   
+        <Route path = '/about/about' > <About /> </Route>
         <Route path = '/contact'> <Contact /> </Route>
+        <Route path = '/products'> <Products /> </Route>
     ~~~
 
     <img src = 'src/readme_img/1_multiple_paths_1.jpg'  width = '60%'/>
@@ -145,8 +146,9 @@ A React application is typically composed of multiple React components with each
     ~~~ js
         <Route exact path = '/'> <Home /> </Route>
         <Route path = '/about'> <About /> </Route> 
-        <Route path = '/about/about'> <Contact /> </Route>   
-        <Route path = '/contact'> <Contact /> </Route> 
+        <Route path = '/about/about' > <About /> </Route>
+        <Route path = '/contact'> <Contact /> </Route>
+        <Route path = '/products'> <Products /> </Route>
     ~~~
 
     <img src = 'src/readme_img/1_multiple_paths_2.jpg'  width = '60%'/>
@@ -158,22 +160,37 @@ A React application is typically composed of multiple React components with each
 
 Using the  `anchor` tag  to navigate between routes forces the browser to reload the entire page. Since React Router only renders views that match the current path, a page refresh is unnecessary. Instead, `React Router` uses the `Link` component to refresh views. Each `Link` component uses a `to` prop to match the view to the `path` defined in each `Route` component. Since the `Route` component was defined inside of `App`, any child of `App` can also recognize a valid route path. The `to` prop is a bit like the anchor tag `href` attribute. However, the `to` prop converts the `to` string into a location object. The pathname of the `location object` changes for any valid URL route. React Router ver 5 includes a useLocation hook that returns the `location object`.
 
-1) A simple navigation component can be built from several `Link` components. The useLocation hook is used to display the current pathname property.
+1) A simple navigation component can be built from several `Link` components. The useLocation hook is used to display the current pathname property. Some simple styling is added via `nav.css`.
 
     ~~~ js
     import React from 'react';
     import {Link, useLocation} from 'react-router-dom';
 
+    import './nav.css';
+
     const Nav = () => {
 
         const locationHook = useLocation();
 
+
         return (
-            <div>
-                <Link to = '/' > Home </Link>
-                <Link to = '/about'> About </Link>
-                <Link to = '/contact'> Contact </Link>        
-                <div> current path: {locationHook.pathname} </div>
+            <div className = 'nav-container'>
+                <div className = 'navbar'>
+                    <div className = 'link-container'>
+                        <Link to = '/' className = 'main-link'> Home </Link>
+                        <Link to = '/about' className = 'main-link'> About </Link>
+                        <Link to = '/contact' className = 'main-link'> Contact </Link>        
+                    
+                    
+                    </div>
+                </div>
+                <div className = 'route-container'>
+                    <p> <span className = 'highlight'> current path: </span> 
+                        <span className = 'pathname'> {locationHook.pathname} </span>
+                        
+                    
+                    </p>
+                </div>
             </div>
         )
     }
@@ -249,7 +266,7 @@ React Router can also render routes within another route path. For example, the`
 
 2) Create a `Product` component
 
-   - the useParams() hook can identify the dynamic portion of the path
+   - the useParams() hook can identify the dynamic portion of the path so we can see the different view for `Product`
    - the destructured variable MUST match the variable used in the `Products` `Route` path
 
         ~~~ js
@@ -272,6 +289,32 @@ React Router can also render routes within another route path. For example, the`
 
     Each nested route will now show a unique current path and view
 
+
+3) Add a `Link` to the `products` route to the `Nav` component
+
+    ~~~ js
+    <div className = 'link-container'>
+        <Link to = '/' className = 'main-link'> Home </Link>
+        <Link to = '/about' className = 'main-link'> About </Link>
+        <Link to = '/contact' className = 'main-link'> Contact </Link>    
+        <Link to = '/products' className = 'main-link'> Products </Link>    
+    </div>
+    ~~~
+
+4) Add a `Route` component to the `products` path within `App`
+
+    ~~~ js
+    <Switch>
+        <Route exact path = '/'> <Home /> </Route>
+        <Route path = '/about'> <About /> </Route> 
+        <Route path = '/about/about' > <About /> </Route>
+        <Route path = '/contact'> <Contact /> </Route>
+        <Route path = '/products'> <Products /> </Route> 
+    </Switch>
+    ~~~
+
+5) Now each Product is rendered while also showing the navigation `Links` from `Products`. The `App` component defined `Links` corresponding  with various`Routes`.
+Using `template literals`, the `Products` component defined mapped `Links` and to `Routes` declared with the variable `idVal`.
     <img src = 'src/readme_img/3_product_1.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_2.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_3.jpg' width = '50%'/>

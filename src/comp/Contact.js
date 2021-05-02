@@ -4,7 +4,7 @@ const Contact = () => {
 
     return (
         <div>
-            <p> Contact View</p>        
+            <p> Contact View</p> 
         </div>
     )
 
@@ -12,3 +12,5 @@ const Contact = () => {
 }
 
 export default Contact;
+
+// <img src="https://botw-compendium.herokuapp.com/api/v2/entry/123/image"></img>       

@@ -21,10 +21,11 @@ function App() {
             <Switch>
                 <Route exact path = '/'> <Home /> </Route>
                 <Route path = '/about'> <About /> </Route> 
-                <Route path = '/contact'> <Contact /> <Products/> </Route>
-                <Route path = '/products'> <Products /> </Route>  
+                <Route path = '/about/about' > <About /> </Route>
+                <Route path = '/contact'> <Contact /> </Route>
+                <Route path = '/products'> <Products /> </Route> 
             </Switch>
-            
+
         </div>
     );
 }
