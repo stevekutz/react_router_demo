@@ -1,9 +1,10 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {Link, Route, useParams, useRouteMatch} from 'react-router-dom';
 
 const Product = (props) => {
 
     const {idVal} = useParams();
+    const {url, path} = useRouteMatch();
 
     console.log('infoData  ==> ', props.infoData);
     console.log('idVal is ===> ', idVal);
@@ -39,9 +40,26 @@ const Product = (props) => {
                 <div> {productData.summary} </div>
                 <div> Summary: {summary} </div>
 
+                {listStuff.map( (listItem) => {
+                    return (
+                        <div key = {listItem.id}>
+                            <Link 
+                                to = {`${url}/${listItem.listID}`} 
+                            > {listItem.listName}            
+                            </Link>
+                        
+                        </div>
+                    
+                    )
                 
+                })}
 
-
+                <Route
+                    path = {`${path}/:listID`}
+                >
+                    <div> Something </div>
+                
+                </Route>
     
             </div>
     )

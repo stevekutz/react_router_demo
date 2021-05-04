@@ -7,10 +7,6 @@ import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {infoData} from '../data/infodata';
 
 const Products = () => {
-    
-    // console.log(infoData);     
-    
-    const [selectedProductID, setSelectedProductID] = useState(null)
 
     const {url, path} = useRouteMatch();
 
@@ -30,7 +26,6 @@ const Products = () => {
                                 className = 'product-link'
                                 // to = {`/products/${product.id}`}
                                 to = {`${url}/${product.id}`}
-                                onClick = { () => setSelectedProductID(product.id)}
                                 >  {product.name} </Link>
                         </div>
                     )
