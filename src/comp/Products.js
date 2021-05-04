@@ -40,7 +40,8 @@ const Products = () => {
 
             <Route 
                 // exact path = {`/products/:idVal`} 
-                exact path = {`${path}/:idVal`}
+                // exact path = {`${path}/:idVal`}
+                path = {`${path}/:idVal`}
             >
                 <Product
                     // productData = {infoData.find( ({id}) => id === selectedProductID)}

@@ -40,9 +40,11 @@ const Product = (props) => {
                 <div> {productData.summary} </div>
                 <div> Summary: {summary} </div>
 
-                {listStuff.map( (listItem) => {
+                {listStuff && listStuff.map( (listItem) => {
                     return (
-                        <div key = {listItem.id}>
+                        <div 
+                            key = {listItem.listID}
+                        >
                             <Link 
                                 to = {`${url}/${listItem.listID}`} 
                             > {listItem.listName}            
