@@ -314,7 +314,7 @@ React Router can also render routes within another route path. For example, the`
     ~~~
 
 5) Now each Product is rendered while also showing the navigation `Links` from `Products`. The `App` component defined `Links` corresponding  with various`Routes`.
-Using `template literals`, the `Products` component defined mapped `Links` and to `Routes` declared with the variable `idVal`.
+6) Nested routes rely on `template literals` to follow a similar pattern. Mapped `Links`are defined in the `Products` component. They correspond with dynamic the `Routes` declared using the variable `idVal`.
     <img src = 'src/readme_img/3_product_1.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_2.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_3.jpg' width = '50%'/>

@@ -8,9 +8,9 @@ const Nav = () => {
     const locationHook = useLocation();
     const {paramHook} = useParams();
 
-    console.log(historyHook)
-    console.log(locationHook);
-    console.log(paramHook);
+    // console.log(historyHook)
+    // console.log(locationHook);
+    // console.log(paramHook);
 
     return (
         <div className = 'nav-container'>

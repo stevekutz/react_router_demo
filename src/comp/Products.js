@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Product from './Product';
 import './product.css';
 
-import {Link, Route} from 'react-router-dom';
+import {Link, Route, useRouteMatch} from 'react-router-dom';
 
 import {infoData} from '../data/infodata';
 
 const Products = () => {
     
-    console.log(infoData);     
+    // console.log(infoData);     
+    
+    const [selectedProductID, setSelectedProductID] = useState(null)
+
+    const {url, path} = useRouteMatch();
 
 
     return (
@@ -24,8 +28,10 @@ const Products = () => {
                         > 
                             <Link 
                                 className = 'product-link'
-                                to = {`/products/${product.id}`}>  {product.name} </Link>
-                        
+                                // to = {`/products/${product.id}`}
+                                to = {`${url}/${product.id}`}
+                                onClick = { () => setSelectedProductID(product.id)}
+                                >  {product.name} </Link>
                         </div>
                     )
                 
@@ -37,8 +43,14 @@ const Products = () => {
 
 
 
-            <Route exact path = {`/products/:idVal`} >
-                <Product/>
+            <Route 
+                // exact path = {`/products/:idVal`} 
+                exact path = {`${path}/:idVal`}
+            >
+                <Product
+                    // productData = {infoData.find( ({id}) => id === selectedProductID)}
+                    infoData = {infoData}
+                />
             
             </Route>
 

@@ -1,7 +1,7 @@
 export const infoData = [
     {
         id: 1,
-        name: 'Product 1',
+        name: 'Product 1 Name ',
         summary: 'Summary Info 1',
         extra: {
             id: 1,
@@ -25,7 +25,7 @@ export const infoData = [
     },
     {
         id: 2,
-        name: 'Product 2',
+        name: 'Product 2 Name',
         summary: 'Summary Info 2',
         extra: {
             id: 2,
@@ -53,7 +53,7 @@ export const infoData = [
     }, 
     {
         id: 3,
-        name: 'Product 3',
+        name: 'Product 3 Name',
         summary: 'Summary Info 3',
         extra: {
             id: 3,
