@@ -1,77 +1,77 @@
 export const infoData = [
     {
         id: 1,
-        name: 'Product 1 Name ',
-        summary: 'Summary Info 1',
+        productName: 'Product 1 Name',
+        summary: 'Product 1 Summary Info',
         extra: {
             id: 1,
             subtopic: 'subtopic 1',
             description: 'subtopic 1 description'
         },
-        listStuff: [
+        features: [
             {
-                listID: 1,
-                listName: '1 List 1 Name1'
+                featureID: 1,
+                featureDesc: '1 Feature 1 Feature Description'
             },
             {
-                listID: 2,
-                listName: '1 List 2 Name2'
+                featureID: 2,
+                featureDesc: '1 Feature 2 Feature Description'
             },
             {
-                listID: 3,
-                listName: '1 List 3 Name3'
+                featureID: 3,
+                featureDesc: '1 Feature 3 Feature Description'
             },
         ],     
     },
     {
         id: 2,
-        name: 'Product 2 Name',
-        summary: 'Summary Info 2',
+        productName: 'Product 2 Name',
+        summary: 'Product 2 Summary Info',
         extra: {
             id: 2,
             subtopic: 'subtopic 2',
             description: 'subtopic 2 description'
         },
-        listStuff: [
+        features: [
             {
-                listID: 1,
-                listName: '2 List 1 Name1'
+                featureID: 1,
+                featureDesc: 'Product 2 Feature Description'
             },
             {
-                listID: 2,
-                listName: '2 List 2 Name2'
+                featureID: 2,
+                featureDesc: 'Product 2 Feature Description'
             },
             {
-                listID: 3,
-                listName: '2 List 2 Name3'
+                featureID: 3,
+                featureDesc: 'Product 2 Feature Description'
             },
             {
-                listID: 4,
-                listName: '2 List 2 Name4'
+                featureID: 4,
+                featureDesc: 'Product 2 Feature Description'
             },
         ],     
     }, 
     {
         id: 3,
-        name: 'Product 3 Name',
-        summary: 'Summary Info 3',
+        productName: 'Product 3 Name',
+        summary: 'Product 3 Summary Info',
         extra: {
             id: 3,
             subtopic: 'subtopic 3',
             description: 'subtopic 3 description'
         },
-        listStuff: [
+        features: [
             {
-                listID: 1,
-                listName: '3 List 1 Name1'
+                featureID: 1,
+                featureDesc: 'Product 3 Feature Description'
             },
             {
-                listID: 2,
-                listName: '3 List 2 Name2'
+                featureID: 2,
+                featureDesc: 'Product 3 Feature Description'
             },
             {
-                listID: 3,
-                listName: '3 List 2 Name3'
+                featureID: 3,
+                featureDesc: 'Product 3 Feature 2 Description'
             },
         ],     
     }, 

@@ -232,9 +232,6 @@ React Router can also render routes within another route path. For example, the`
 
         const Products = () => {
             
-            console.log(infoData);     
-
-
             return (
                 <div>
                     <p>  PRODUCTS </p>
@@ -242,7 +239,7 @@ React Router can also render routes within another route path. For example, the`
                     {infoData.map( (product) => {
                         return (
                             <div key = {product.id}> 
-                                <Link to = {`/products/${product.id}`}>  {product.name} </Link>
+                                <Link to = {`/products/${product.id}`}>  {product.productName} </Link>
                             
                             </div>
                         )
@@ -313,9 +310,52 @@ React Router can also render routes within another route path. For example, the`
     </Switch>
     ~~~
 
-5) Now each Product is rendered while also showing the navigation `Links` from `Products`. The `App` component defined `Links` corresponding  with various`Routes`.
+5) Now each Product is rendered while also showing the navigation `Links` from `Products`. The `App` component defined `Links` correspond with various `Routes`.
+   
 6) Nested routes rely on `template literals` to follow a similar pattern. Mapped `Links`are defined in the `Products` component. They correspond with dynamic the `Routes` declared using the variable `idVal`.
+
     <img src = 'src/readme_img/3_product_1.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_2.jpg' width = '50%'/>
     <img src = 'src/readme_img/3_product_3.jpg' width = '50%'/>
 
+    Summarizing both implementations:
+
+    ~~~ js
+    // App.js
+
+    <Link to = '/' > Home </Link>
+    <Link to = '/about''> About </Link>
+    <Link to = '/contact''> Contact </Link>    
+    <Link to = '/products'> Products </Link>
+
+    <Switch>
+        <Route exact path = '/'> <Home /> </Route>
+        <Route path = '/about'> <About /> </Route> 
+        <Route path = '/about/about' > <About /> </Route>
+        <Route path = '/contact'> <Contact /> </Route>
+        <Route path = '/products'> <Products /> </Route> 
+    </Switch
+    ~~~
+
+    ~~~ js
+    // Product.js
+
+    {infoData.map( (product) => {
+        return (
+            <div 
+                key = {product.id}    
+            > 
+                <Link 
+                    className = 'product-link'
+                    to = {`/products/${product.id}`}
+                >  {product.productName} </Link>
+            </div>
+        )    
+    }) }
+
+    <Route 
+        path = {`/products/:idVal`} 
+    >
+        <Product/>
+    </Route>
+    ~~~

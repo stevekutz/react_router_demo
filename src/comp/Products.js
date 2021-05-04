@@ -26,13 +26,13 @@ const Products = () => {
                                 className = 'product-link'
                                 // to = {`/products/${product.id}`}
                                 to = {`${url}/${product.id}`}
-                                >  {product.name} </Link>
+                                >  {product.productName} </Link>
                         </div>
                     )
                 
                 }) }
-            
-            
+
+
             </div>
 
 
@@ -47,11 +47,11 @@ const Products = () => {
                     // productData = {infoData.find( ({id}) => id === selectedProductID)}
                     infoData = {infoData}
                 />
-            
+
             </Route>
 
 
-            
+
 
         </div>
     )

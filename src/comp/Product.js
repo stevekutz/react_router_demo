@@ -4,24 +4,24 @@ import {Link, Route, useParams, useRouteMatch} from 'react-router-dom';
 const Product = (props) => {
 
     const {idVal} = useParams();
-    const {url, path} = useRouteMatch();
+    // const {url, path} = useRouteMatch();
 
-    console.log('infoData  ==> ', props.infoData);
-    console.log('idVal is ===> ', idVal);
-    console.log('idVal type is ===> ', typeof(idVal));
-    // console.log('productDATA >> ' , props.productData)
+    // console.log('infoData  ==> ', props.infoData);
+    // console.log('idVal is ===> ', idVal);
+    // console.log('idVal type is ===> ', typeof(idVal));
+    // // console.log('productDATA >> ' , props.productData)
 
-    // const productData = props.infoData.find( ({id}) => id === Number(idVal))
-    const productData = props.infoData.find( (filtVar) => filtVar.id === Number(idVal))
+    // // const productData = props.infoData.find( ({id}) => id === Number(idVal))
+    // const productData = props.infoData.find( (filtVar) => filtVar.id === Number(idVal))
 
     // const productData = props.infoData[idVal]
 
  
    
 
-    console.log('productData ', productData);
+    // console.log('productData ', productData);
 
-    const {id, name,summary, extra, listStuff} = productData;
+    // const {id, productName, summary, extra, features} = productData;
 
     return (
 
@@ -35,19 +35,19 @@ const Product = (props) => {
             
                 <div> Product ID:  {idVal} </div>
                 
-                
-                <div> {productData.name}</div>
-                <div> {productData.summary} </div>
+                {/*
+                <div> id: {id}</div>
+                <div> {productName} </div>
                 <div> Summary: {summary} </div>
 
-                {listStuff && listStuff.map( (listItem) => {
+                {features.map( (feature) => {
                     return (
                         <div 
-                            key = {listItem.listID}
+                            key = {feature.featureID}
                         >
                             <Link 
-                                to = {`${url}/${listItem.listID}`} 
-                            > {listItem.listName}            
+                                to = {`${url}/${feature.featureID}`} 
+                            > {feature.featureDesc}            
                             </Link>
                         
                         </div>
@@ -62,7 +62,8 @@ const Product = (props) => {
                     <div> Something </div>
                 
                 </Route>
-    
+                */}
+
             </div>
     )
 
