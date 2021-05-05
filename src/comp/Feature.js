@@ -1,5 +1,7 @@
 import {useParams} from 'react-router-dom';
 
+import './feature.css';
+
 const Feature = (props) => {
 
 
@@ -13,7 +15,9 @@ const Feature = (props) => {
     console.log('feature ', feature);
 
     return (
-        <div style = {{background: 'white'}} >
+        <div 
+            className = 'product-feature-description'
+        >
             {feature.featureDesc}
         </div>
 

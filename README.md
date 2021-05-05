@@ -1,6 +1,6 @@
 ### React Router demo
 
-This tutorial introduces the features of React Router ver 5. Each section has its own branch to help demonstrate how all of these features work together.
+This tutorial introduces the features of React Router ver 5.
 
 
 #### Initial setup with basic routes
@@ -11,7 +11,7 @@ This tutorial introduces the features of React Router ver 5. Each section has it
  - Route
  - Switch
 
-A React application is typically composed of multiple React components with each component representing a specific view. React Router allows your React application to select a specific view while hiding the other available views. Each view is distinguished by a unique `route` that is defined with the `Route` component. Accessing these views is called `routing`. The highest view of your React application, usually `App.js`, should to be wrapped in the `BrowserRouter`component. This enables routing within `App` and any child components. The `Route` component has a `path` prop that corresponds to a specific view. If a match occurs, the `Route component` will renders its children. `Route` will render `null` if a match is not found. 
+A React application is typically composed of multiple React components with each component representing a specific view. React Router allows your React application to select a specific view while hiding the other available views. Each view is distinguished by a unique `route` that is defined with `path` prop of the `Route` component. Accessing these views is called `routing`. The highest view of your React application, usually `App.js`, should to be wrapped in the `BrowserRouter`component. This enables routing within `App` and any child components. The `Route` component has a `path` prop that corresponds to a specific view. If a match occurs, the `Route component` will renders its children. `Route` will render `null` if a match is not found. 
 
 
 

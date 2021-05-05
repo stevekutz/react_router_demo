@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Product from './Product';
-import './product.css';
+import './products.css';
 
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 
@@ -12,18 +12,18 @@ const Products = () => {
 
 
     return (
-        <div className = 'product-container'>
+        <div className = 'products-container'>
             <p>  PRODUCTS View </p>
 
-            <div className = 'product-link-container'>
+            <div className = 'products-link-container'>
                 {infoData.map( (product) => {
                     return (
                         <div 
                             key = {product.id}
-                            className = 'product-links-nav'    
+                            className = 'products-links-nav'    
                         > 
                             <Link 
-                                className = 'product-link'
+                                className = 'products-link'
                                 // to = {`/products/${product.id}`}
                                 to = {`${url}/${product.id}`}
                                 >  {product.productName} </Link>
