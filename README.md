@@ -1,9 +1,9 @@
-#### React Router demo
+### React Router demo
 
 This tutorial introduces the features of React Router ver 5. Each section has its own branch to help demonstrate how all of these features work together.
 
 
-##### Initial setup with basic routes
+#### Initial setup with basic routes
  This section will show how to implement the following fundamental React Router components:
 
 
@@ -156,7 +156,7 @@ A React application is typically composed of multiple React components with each
 
     React Router provides a simple way to make sure a single component is rendered. Wrapping all of the Route components in a `Switch` component will return the first matched component. It is still necessary to include the exact prop since only one route will be returned and first matched path will be '/'. Using the `Switch` component is an easy way to make sure each route associated with a unique view. 
 
-##### Navigating between routes
+#### Navigating between routes
 
 Using the  `anchor` tag  to navigate between routes forces the browser to reload the entire page. Since React Router only renders views that match the current path, a page refresh is unnecessary. Instead, `React Router` uses the `Link` component to refresh views. Each `Link` component uses a `to` prop to match the view to the `path` defined in each `Route` component. Since the `Route` component was defined inside of `App`, any child of `App` can also recognize a valid route path. The `to` prop is a bit like the anchor tag `href` attribute. However, the `to` prop converts the `to` string into a location object. The pathname of the `location object` changes for any valid URL route. React Router ver 5 includes a useLocation hook that returns the `location object`.
 
@@ -217,7 +217,7 @@ Using the  `anchor` tag  to navigate between routes forces the browser to reload
     <img src = 'src/readme_img/2_Link_about.jpg' width = '50%'/>
     <img src = 'src/readme_img/2_Link_contact.jpg' width = '50%'/>
 
-##### Nested Routes Basics
+#### Nested Routes Basics
 
 React Router can also render routes within another route path. For example, the`/products` route view might show a list of products while the route `/products/1` renders a view for the first product. This powerful feature of React Router is often implemented by mapping through data received from an API call. Each element receives its own `<Link` element. Each `Link` component receives a `template literal` within its `to` prop to handle to dynamic portion of the route assigned while mapping through the API data. However, each `Link` must match the path defined in a `Route` in order to render something. This is accomplished again using template literals. A single `Route` component can use a template literal within its `path` prop. The template literal defines the dynamic portion of the path.
 
@@ -359,3 +359,48 @@ React Router can also render routes within another route path. For example, the`
         <Product/>
     </Route>
     ~~~
+
+#### A better way to define dynamic routes within `Products`
+
+1) The `/products` route is hard-coded in both the `Link` & `Route` component within `Products`. If this route was modified in `App` to `productz`, the `Products` component would not match the path and would render null instead of the `Product` component. The specific change in route would also have to be implemented within `Products`. However, React Router provides the `useRouteMatch` hook to provide dynamic parameters that can then be used with the `Link` and `Route` components of `Products`.
+
+2) After importing & destructuring `useRouteMatch`, the `url` & `path` properties are available for dynamic routes.
+
+    - `url`
+        - the current full URL is returned
+        - useful to create nested `Links along with the dynamic portion of the route
+    - `path`
+        - the current path including URL parameters
+        - useful to define `Route` path along with the URL parameters
+
+    With the changes below, the changed route within `App` is read from `useRouteMatch` adn the `Product` component is rendered
+
+    ~~~ js
+    // Product.js
+    ...
+    const {url, path} = useRouteMatch();
+
+    ...
+    {infoData.map( (product) => {
+        return (
+            <div 
+                key = {product.id}    
+            > 
+                <Link 
+                    className = 'product-link'
+                    // to = {`/products/${product.id}`}
+                    to = {`/${url}/${product.id}`}
+                >  {product.productName} </Link>
+            </div>
+        )    
+    }) }
+
+    <Route 
+        // path = {`/products/:idVal`} 
+        path = {`${path}/:idVal`}
+    >
+        <Product/>
+    </Route>
+    ~~~
+
+    <img src = 'src/readme_img/useRouteMatch_Products.jpg'  width = '50%'/>

@@ -10,15 +10,15 @@ export const infoData = [
         },
         features: [
             {
-                featureID: 1,
+                featureID: 'feature-1',
                 featureDesc: '1 Feature 1 Feature Description'
             },
             {
-                featureID: 2,
+                featureID: 'feature-2',
                 featureDesc: '1 Feature 2 Feature Description'
             },
             {
-                featureID: 3,
+                featureID: 'feature-3',
                 featureDesc: '1 Feature 3 Feature Description'
             },
         ],     
@@ -34,19 +34,19 @@ export const infoData = [
         },
         features: [
             {
-                featureID: 1,
+                featureID: 'feature-1',
                 featureDesc: 'Product 2 Feature Description'
             },
             {
-                featureID: 2,
+                featureID: 'feature-2',
                 featureDesc: 'Product 2 Feature Description'
             },
             {
-                featureID: 3,
+                featureID: 'feature-3',
                 featureDesc: 'Product 2 Feature Description'
             },
             {
-                featureID: 4,
+                featureID: 'feature-4',
                 featureDesc: 'Product 2 Feature Description'
             },
         ],     
@@ -62,15 +62,15 @@ export const infoData = [
         },
         features: [
             {
-                featureID: 1,
+                featureID: 'feature-1',
                 featureDesc: 'Product 3 Feature Description'
             },
             {
-                featureID: 2,
+                featureID: 'feature-2',
                 featureDesc: 'Product 3 Feature Description'
             },
             {
-                featureID: 3,
+                featureID: 'feature-3',
                 featureDesc: 'Product 3 Feature 2 Description'
             },
         ],     

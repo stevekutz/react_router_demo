@@ -8,7 +8,7 @@ import About from './comp/About';
 import Contact from './comp/Contact';
 import Nav from './comp/Nav';
 import Products from './comp/Products';
-
+import Product from './comp/Product';
 
 
 
@@ -23,7 +23,7 @@ function App() {
                 <Route path = '/about'> <About /> </Route> 
                 <Route path = '/about/about' > <About /> </Route>
                 <Route path = '/contact'> <Contact /> </Route>
-                <Route path = '/products'> <Products /> </Route> 
+                <Route path = '/products'> <Products /> </Route>
             </Switch>
 
         </div>

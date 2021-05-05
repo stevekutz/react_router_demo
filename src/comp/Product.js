@@ -1,10 +1,12 @@
 import React from 'react';
+import Feature from './Feature';
+
 import {Link, Route, useParams, useRouteMatch} from 'react-router-dom';
 
 const Product = (props) => {
 
     const {idVal} = useParams();
-    // const {url, path} = useRouteMatch();
+    const {url, path} = useRouteMatch();
 
     // console.log('infoData  ==> ', props.infoData);
     // console.log('idVal is ===> ', idVal);
@@ -12,16 +14,17 @@ const Product = (props) => {
     // // console.log('productDATA >> ' , props.productData)
 
     // // const productData = props.infoData.find( ({id}) => id === Number(idVal))
-    // const productData = props.infoData.find( (filtVar) => filtVar.id === Number(idVal))
+    const productData = props.infoData.find( (filtVar) => filtVar.id === Number(idVal))
 
     // const productData = props.infoData[idVal]
 
+    
  
    
 
     // console.log('productData ', productData);
 
-    // const {id, productName, summary, extra, features} = productData;
+    const {id, productName, summary, extra, features} = productData;
 
     return (
 
@@ -35,7 +38,7 @@ const Product = (props) => {
             
                 <div> Product ID:  {idVal} </div>
                 
-                {/*
+                
                 <div> id: {id}</div>
                 <div> {productName} </div>
                 <div> Summary: {summary} </div>
@@ -47,7 +50,7 @@ const Product = (props) => {
                         >
                             <Link 
                                 to = {`${url}/${feature.featureID}`} 
-                            > {feature.featureDesc}            
+                            > {feature.featureID}            
                             </Link>
                         
                         </div>
@@ -57,12 +60,12 @@ const Product = (props) => {
                 })}
 
                 <Route
-                    path = {`${path}/:listID`}
+                    path = {`${path}/:featID`}
                 >
-                    <div> Something </div>
+                    <div> <Feature productData = {productData}/> </div>
                 
                 </Route>
-                */}
+                
 
             </div>
     )

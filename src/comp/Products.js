@@ -37,9 +37,9 @@ const Products = () => {
 
 
 
-
+            
             <Route 
-                // exact path = {`/products/:idVal`} 
+                //  path = {`/products/:idVal`} 
                 // exact path = {`${path}/:idVal`}
                 path = {`${path}/:idVal`}
             >
